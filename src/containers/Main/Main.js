@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {  } from '../../actions';
 import { Card } from '../Card/Card';
+import { Chart } from '../Chart/Chart';
 import { getGameByGameStats } from '../../apiCalls/apiCalls';
 import PropTypes from 'prop-types';
 
@@ -29,8 +30,6 @@ export class Main extends Component {
   }
 
   render () {
-    let chart;
-
     let playerCards = this.props.players.map(player => {
       return (<Card 
         player={player}
@@ -42,7 +41,7 @@ export class Main extends Component {
       <div className="Main">
         {playerCards}
         <button onClick={this.comparePlayers}>Compare Players</button>
-        {chart}
+        {this.state.gameStats.length && <Chart stats={this.state.gameStats} players={this.props.players}/>}
       </div>
     )
   }
