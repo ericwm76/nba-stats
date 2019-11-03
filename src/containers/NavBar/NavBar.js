@@ -3,43 +3,51 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import {  } from '../../actions';
+import { setPlayers } from '../../actions';
+import { searchByName } from '../../apiCalls/apiCalls'
 import PropTypes from 'prop-types';
 
 class NavBar extends Component {
   constructor() {
     super();
     this.state = {
-      playerName: ""
+      firstName: "",
+      lastName: ""
     }
   }
 
   handleChange = (e) => {
-    this.setState({ playerName: e.target.value })
+    this.setState({ [e.target.name]: e.target.value })
   }
 
-  
+  getPlayer = async (e) => {
+    e.preventDefault();
+    let players = await searchByName(this.state.firstName, this.state.lastName);
+    this.props.setPlayers(players);
+  }
+
 
   render = () => {
     return (
       <div className="NavBar">
         <h1>NBA Stats</h1>
         <form>
-          <input type="text" placeholder="Search by player name" onChange={this.handleChange}/>
-          <button onClick={() => this.searchPlayers}>Search</button> 
+          <input type="text" name="firstName" placeholder="Player's first name" onChange={this.handleChange}/>
+          <input type="text" name="lastName" placeholder="Player's last name" onChange={this.handleChange}/>
+          <button onClick={this.getPlayer}>Search</button> 
         </form>
       </div>
     )
   }
 }
 
-const mapStateToProps = state => ({
-
+const mapStateToProps = ({ players }) => ({
+  players
 })
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({
-
+    setPlayers
   }, dispatch)
 )
 
