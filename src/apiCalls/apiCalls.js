@@ -23,3 +23,16 @@ export const getPlayerSeasonAvgs = async (id) => {
 
   return data.data;
 }
+
+export const getGameByGameStats = async (id) => {
+  let response = await fetch(`${baseUrl}/stats?per_page=100&seasons[]=2019&player_ids[]=${id}`)
+
+  if(!response.ok) {
+
+  }
+
+  let data = await response.json();
+  console.log(data.data)
+
+  return data.data;
+}
