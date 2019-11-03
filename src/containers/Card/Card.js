@@ -1,13 +1,8 @@
 import React from 'react';
-import { getPlayerSeasonAvgs } from '../../apiCalls/apiCalls'
+import { Link } from 'react-router-dom';
+import { getPlayerSeasonAvgs } from '../../apiCalls/apiCalls';
 
 export const Card = ({ player }) => {
-  const getStats = async (e, id) => {
-    e.preventDefault();
-    let avgs = await getPlayerSeasonAvgs(id);
-    console.log(avgs)
-    return avgs;
-  } 
 
   return (
     <div>
@@ -17,7 +12,9 @@ export const Card = ({ player }) => {
       <h3>Weight: {player.weight_pounds} lbs</h3>
       <h3>Position: {player.position}</h3>
       <div className="card-footer">
-        <button onClick={(e) => getStats(e, player.id)}>View Stats</button>
+        <Link to={`/player/${player.id}`}>
+          <button>View Stats</button>
+        </Link>
         <button>X</button>
       </div>
     </div>
