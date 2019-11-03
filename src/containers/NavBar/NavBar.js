@@ -26,7 +26,6 @@ class NavBar extends Component {
     this.props.setPlayers(players);
   }
 
-
   render = () => {
     return (
       <div className="NavBar">

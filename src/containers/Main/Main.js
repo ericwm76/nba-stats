@@ -4,26 +4,27 @@ import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {  } from '../../actions';
+import { Card } from '../Card/Card'
 import PropTypes from 'prop-types';
 
-export const Main = () => {
-
+export const Main = ({ players }) => {
+  let playerCards = players.map(player => {
+    return (<Card 
+      player={player}
+      key={player.id}
+    />)
+  })
 
   return (
     <div className="Main">
-      
+      {playerCards}
+      <button>Compare Players</button>
     </div>
   )
 }
 
-const mapStateToProps = state => ({
-
+const mapStateToProps = ({ players }) => ({
+  players
 })
 
-const mapDispatchToProps = dispatch => (
-  bindActionCreators({
-
-  }, dispatch)
-)
-
-export default connect(mapStateToProps, mapDispatchToProps)(Main)
+export default connect(mapStateToProps)(Main)
