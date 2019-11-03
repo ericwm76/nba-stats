@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { getPlayerSeasonAvgs } from '../../apiCalls/apiCalls';
 
 export const Card = ({ player }) => {
 

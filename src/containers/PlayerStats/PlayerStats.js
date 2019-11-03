@@ -6,44 +6,79 @@ export class PlayerStats extends Component {
   constructor() {
     super();
     this.state = {
-
+      playerAvgs: {}
     }
   }
 
-  componentDidMount() {
-    const getStats = async (e, id) => {
-      e.preventDefault();
-      let avgs = await getPlayerSeasonAvgs(id);
-      console.log(avgs)
-      return avgs;
-    } 
+  componentDidMount = async () => {
+    console.log(this.props)
+    const { id } = this.props.match.params;
+    const { players } = this.props;
+    const player = players.find(player => 
+      player.id === parseInt(id)
+    );
+    
+    let avgs = await getPlayerSeasonAvgs(player.id);
+    this.setState({playerAvgs: avgs[0]});
+    console.log(this.state)
   }
 
 
 
   render() {
-    const { id } = this.props.match.params;
-    const { players } = this.props;
-    const player = players.find(player => 
-      player.player_id === parseInt(id)
-    );
+    const { playerAvgs } = this.state;
 
     return (
       <table>
-      <thead>
-        <tr>
-          <th colspan="2">The table header</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>The table body</td>
-          <td>with two columns</td>
-        </tr>
-      </tbody>
-    </table>
-  )
-}
+        <tbody>
+          <tr>
+            <td>GP</td>
+            <td>MPG</td>
+            <td>FGM</td>
+            <td>FGA</td>
+            <td>FG%</td>
+            <td>3PM</td>
+            <td>3PA</td>
+            <td>3P%</td>
+            <td>FTM</td>
+            <td>FTA</td>
+            <td>FT%</td>
+            <td>ORB</td>
+            <td>DRB</td>
+            <td>TRB</td>
+            <td>AST</td>
+            <td>STL</td>
+            <td>BLK</td>
+            <td>TUR</td>
+            <td>PF</td>
+            <td>PTS</td>
+          </tr>
+          <tr>
+            <td>{playerAvgs.games_played}</td>
+            <td>{playerAvgs.min}</td>
+            <td>{playerAvgs.fgm}</td>
+            <td>{playerAvgs.fga}</td>
+            <td>{playerAvgs.fg_pct}</td>
+            <td>{playerAvgs.fg3m}</td>
+            <td>{playerAvgs.fg3a}</td>
+            <td>{playerAvgs.fg3_pct}</td>
+            <td>{playerAvgs.ftm}</td>
+            <td>{playerAvgs.fta}</td>
+            <td>{playerAvgs.ft_pct}</td>
+            <td>{playerAvgs.oreb}</td>
+            <td>{playerAvgs.dreb}</td>
+            <td>{playerAvgs.reb}</td>
+            <td>{playerAvgs.ast}</td>
+            <td>{playerAvgs.stl}</td>
+            <td>{playerAvgs.blk}</td>
+            <td>{playerAvgs.turnover}</td>
+            <td>{playerAvgs.pf}</td>
+            <td>{playerAvgs.pts}</td>
+          </tr>
+        </tbody>
+      </table>
+    )
+  }
 }
 
 const mapStateToProps = ({players}) => ({
