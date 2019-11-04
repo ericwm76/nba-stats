@@ -50,7 +50,7 @@ export class Main extends Component {
   }
 }
 
-const mapStateToProps = ({ players }) => ({
+export const mapStateToProps = ({ players }) => ({
   players
 })
 

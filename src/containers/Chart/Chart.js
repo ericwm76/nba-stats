@@ -6,14 +6,12 @@ export class Chart extends Component {
   constructor() {
     super();
     this.state = {
-      stat: '',
       labels: [],
       datasets: []
     }
   }
 
-  createLabels() {
-    const { stats } = this.props;
+  createLabels(stats) {
     let n = 0;
     let labels = [];
 
@@ -31,8 +29,7 @@ export class Chart extends Component {
     this.setState({ labels: labels })
   }
 
-  createDatasets() {
-    const {stats, players} = this.props;
+  createDatasets(players, stats) {
     let datasets = [];
 
     stats.forEach(stat => {
@@ -68,8 +65,9 @@ export class Chart extends Component {
   }
 
   componentDidMount() {
-    this.createLabels();
-    this.createDatasets();
+    const { stats, players } = this.props
+    this.createLabels(stats);
+    this.createDatasets(players, stats);
   }
 
   render() {
