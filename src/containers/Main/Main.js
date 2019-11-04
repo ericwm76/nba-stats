@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {  } from '../../actions';
 import { Card } from '../Card/Card';
-import { Chart } from '../Chart/Chart';
+import Chart from '../Chart/Chart';
 import { getGameByGameStats } from '../../apiCalls/apiCalls';
 import PropTypes from 'prop-types';
 
@@ -17,11 +17,11 @@ export class Main extends Component {
     }
   }
 
-  comparePlayers = async (e) => {
+  comparePlayers = async (e, players) => {
     e.preventDefault();
     
     try {
-    await this.props.players.map(async (player) => {
+    await players.map(async player => {
         let stats = await getGameByGameStats(player.id); 
         let statsObj = { [player.id]: stats };
         this.setState({ gameStats: [...this.state.gameStats, statsObj] })
@@ -42,7 +42,7 @@ export class Main extends Component {
 
     return (
       <div className="Main">
-        <button onClick={this.comparePlayers}>Compare Players</button>
+        <button classname="compare-btn" onClick={(e) => this.comparePlayers(e, this.props.players)}>Compare Players</button>
         {playerCards}
         {gameStats.length && gameStats.length === players.length && <Chart stats={gameStats} players={players}/>}
       </div>

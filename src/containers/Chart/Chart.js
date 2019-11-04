@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
-import { connect } from 'react-redux';
 
-export class Chart extends Component {
+class Chart extends Component {
   constructor() {
     super();
     this.state = {
@@ -87,8 +86,4 @@ export class Chart extends Component {
   }
 };
 
-const mapStateToProps = ({ players }) => ({
-  players
-})
-
-export default connect(mapStateToProps)(Chart)
+export default Chart;

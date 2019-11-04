@@ -7,7 +7,7 @@ import { setPlayers } from '../../actions';
 import { searchByName } from '../../apiCalls/apiCalls'
 import PropTypes from 'prop-types';
 
-class NavBar extends Component {
+export class NavBar extends Component {
   constructor() {
     super();
     this.state = {
@@ -40,11 +40,11 @@ class NavBar extends Component {
   }
 }
 
-const mapStateToProps = ({ players }) => ({
+export const mapStateToProps = ({ players }) => ({
   players
 })
 
-const mapDispatchToProps = dispatch => (
+export const mapDispatchToProps = dispatch => (
   bindActionCreators({
     setPlayers
   }, dispatch)
