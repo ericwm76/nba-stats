@@ -7,13 +7,6 @@ import Main from '../Main/Main'
 import PlayerStats from '../PlayerStats/PlayerStats'
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-
-    }
-  }
-
   render = () => {
     return (
       <div className="App">

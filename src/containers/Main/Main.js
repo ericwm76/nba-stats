@@ -42,8 +42,8 @@ export class Main extends Component {
 
     return (
       <div className="Main">
-        {playerCards}
         <button onClick={this.comparePlayers}>Compare Players</button>
+        {playerCards}
         {gameStats.length && gameStats.length === players.length && <Chart stats={gameStats} players={players}/>}
       </div>
     )

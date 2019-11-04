@@ -31,8 +31,8 @@ class NavBar extends Component {
       <div className="NavBar">
         <h1>NBA Stats</h1>
         <form>
-          <input type="text" name="firstName" placeholder="Player's first name" onChange={this.handleChange}/>
-          <input type="text" name="lastName" placeholder="Player's last name" onChange={this.handleChange}/>
+          <input type="text" name="firstName" placeholder="Player's first name, e.g. LeBron" onChange={this.handleChange}/>
+          <input type="text" name="lastName" placeholder="Player's last name, e.g. James" onChange={this.handleChange}/>
           <button onClick={this.getPlayer}>Search</button> 
         </form>
       </div>
