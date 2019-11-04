@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './PlayerStats.scss'
 import { getPlayerSeasonAvgs } from '../../apiCalls/apiCalls' 
 
 export class PlayerStats extends Component {
@@ -31,7 +32,7 @@ export class PlayerStats extends Component {
     return (
       <table>
         <tbody>
-          <tr>
+          <tr className="top-row">
             <td>GP</td>
             <td>MPG</td>
             <td>FGM</td>
@@ -53,7 +54,7 @@ export class PlayerStats extends Component {
             <td>PF</td>
             <td>PTS</td>
           </tr>
-          <tr>
+          <tr className="bottom-row">
             <td>{playerAvgs.games_played}</td>
             <td>{playerAvgs.min}</td>
             <td>{playerAvgs.fgm}</td>
