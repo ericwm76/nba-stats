@@ -1,6 +1,5 @@
 import './NavBar.scss';
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { setPlayers } from '../../actions';
@@ -51,3 +50,8 @@ export const mapDispatchToProps = dispatch => (
 )
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavBar)
+
+NavBar.propTypes = {
+  players: PropTypes.array.isRequired,
+  setPlayers: PropTypes.func.isRequired,
+}

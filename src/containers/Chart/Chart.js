@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Line } from 'react-chartjs-2';
+import PropTypes from 'prop-types';
 
 class Chart extends Component {
   constructor() {
@@ -87,3 +88,8 @@ class Chart extends Component {
 };
 
 export default Chart;
+
+Chart.propTypes = {
+  players: PropTypes.array.isRequired,
+  stats: PropTypes.array.isRequired
+}

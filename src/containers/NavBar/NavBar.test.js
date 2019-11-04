@@ -65,7 +65,7 @@ describe('NavBar', () => {
     // expect(searchByName).toHaveBeenCalled();
   })
 
-  describe('NavBar - mapStateToProps', () => {
+  describe('mapStateToProps', () => {
     it('should return an object with the players array', () => {
       const mockState = {
         players: mockPlayers,
@@ -81,7 +81,7 @@ describe('NavBar', () => {
     })
   })
 
-  describe('NavBar - mapDispatchToProps', () => {
+  describe('mapDispatchToProps', () => {
     it('calls dispatch with a setPlayers action when getPlayer is called', () => {
       const mockDispatch = jest.fn();
       const actionToDispatch = setPlayers(mockPlayers);

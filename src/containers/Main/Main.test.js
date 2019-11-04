@@ -110,4 +110,20 @@ describe('Main', ( )=> {
     await wrapper.instance().comparePlayers(mockEvent, mockPlayers);
     expect(wrapper.state('gameStats')).toEqual(expected)
   })
+
+  describe('mapStateToProps', () => {
+    it('should return an object with the players array', () => {
+      const mockState = {
+        players: mockPlayers,
+        filter: 'SET_PLAYERS'
+      };
+      const expected = {
+        players: mockPlayers
+      };
+
+      const mappedProps = mapStateToProps(mockState);
+
+      expect(mappedProps).toEqual(expected);
+    })
+  })
 })

@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './PlayerStats.scss'
-import { getPlayerSeasonAvgs } from '../../apiCalls/apiCalls' 
+import './PlayerStats.scss';
+import { getPlayerSeasonAvgs } from '../../apiCalls/apiCalls';
+import PropTypes from 'prop-types';
+
 
 export class PlayerStats extends Component {
   constructor() {
@@ -82,8 +84,13 @@ export class PlayerStats extends Component {
   }
 }
 
-const mapStateToProps = ({players}) => ({
+export const mapStateToProps = ({players}) => ({
   players
 })
 
 export default connect(mapStateToProps)(PlayerStats)
+
+PlayerStats.propTypes = {
+  players: PropTypes.array.isRequired,
+  match: PropTypes.object
+}

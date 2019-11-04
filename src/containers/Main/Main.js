@@ -1,7 +1,5 @@
 import './Main.scss';
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {  } from '../../actions';
 import { Card } from '../Card/Card';
@@ -55,3 +53,7 @@ export const mapStateToProps = ({ players }) => ({
 })
 
 export default connect(mapStateToProps)(Main)
+
+Main.propTypes = {
+  players: PropTypes.array.isRequired
+}
