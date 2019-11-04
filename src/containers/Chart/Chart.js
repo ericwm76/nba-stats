@@ -28,7 +28,6 @@ export class Chart extends Component {
       labels.push("Game " + (i + 1))
     }
 
-    console.log('labels: ', labels)
     this.setState({ labels: labels })
   }
 
@@ -37,7 +36,6 @@ export class Chart extends Component {
     let datasets = [];
 
     stats.forEach(stat => {
-      console.log(stat);
       let id = parseInt(Object.keys(stat));
       let player = players.find(player => player.id === id);
       let playerName = player.first_name + ' ' + player.last_name;
@@ -66,7 +64,6 @@ export class Chart extends Component {
       })
     })
 
-    console.log('datasets: ', datasets)
     this.setState({ datasets: datasets });
   }
 
