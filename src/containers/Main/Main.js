@@ -42,7 +42,7 @@ export class Main extends Component {
 
     return (
       <div className="Main">
-        <button classname="compare-btn" onClick={(e) => this.comparePlayers(e, this.props.players)}>Compare Players</button>
+        <button onClick={(e) => this.comparePlayers(e, this.props.players)}>Compare Players</button>
         {playerCards}
         {gameStats.length && gameStats.length === players.length && <Chart stats={gameStats} players={players}/>}
       </div>

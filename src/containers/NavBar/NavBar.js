@@ -31,9 +31,9 @@ export class NavBar extends Component {
       <div className="NavBar">
         <h1>NBA Stats</h1>
         <form>
-          <input type="text" name="firstName" placeholder="Player's first name, e.g. LeBron" onChange={this.handleChange}/>
-          <input type="text" name="lastName" placeholder="Player's last name, e.g. James" onChange={this.handleChange}/>
-          <button onClick={this.getPlayer}>Search</button> 
+          <input className="firstNameInput" type="text" name="firstName" placeholder="Player's first name, e.g. LeBron" onChange={(e) => this.handleChange(e)}/>
+          <input className="lastNameInput" type="text" name="lastName" placeholder="Player's last name, e.g. James" onChange={(e) => this.handleChange(e)}/>
+          <button onClick={(e) => this.getPlayer(e)}>Search</button> 
         </form>
       </div>
     )
