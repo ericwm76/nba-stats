@@ -6,13 +6,17 @@ export class Chart extends Component {
   constructor() {
     super();
     this.state = {
-      stat: ''
+      stat: '',
+      labels: [],
+      datasets: []
     }
   }
 
-  render() {
-    const { players, stats } = this.props;
+  createLabels() {
+    const { stats } = this.props;
     let n = 0;
+    let labels = [];
+
     stats.forEach(stat => {
       let id = Object.keys(stat);
       if (stat[id].length > n) {
@@ -20,12 +24,27 @@ export class Chart extends Component {
       }
     })
 
-    let labels = 
+    for (var i = 0; i < n; i++) {
+      labels.push("Game " + (i + 1))
+    }
 
-    console.log(n)
+    this.setState({ labels: labels })
+  }
+
+  createDatasets() {
+    const {stats, players} = this.props;
+
+  }
+
+  componentDidMount() {
+    this.createLabels();
+  }
+
+  render() {
+    const { labels } = this.state
 
     let data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      labels: labels.length > 10 ? labels.slice(-10) : labels,
       datasets: [
         {
           label: 'My First dataset',

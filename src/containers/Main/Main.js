@@ -30,7 +30,10 @@ export class Main extends Component {
   }
 
   render () {
-    let playerCards = this.props.players.map(player => {
+    const { gameStats } = this.state;
+    const { players } = this.props;
+
+    let playerCards = players.map(player => {
       return (<Card 
         player={player}
         key={player.id}
@@ -41,7 +44,7 @@ export class Main extends Component {
       <div className="Main">
         {playerCards}
         <button onClick={this.comparePlayers}>Compare Players</button>
-        {this.state.gameStats.length && <Chart stats={this.state.gameStats} players={this.props.players}/>}
+        {gameStats.length && gameStats.length === players.length && <Chart stats={gameStats} players={players}/>}
       </div>
     )
   }
