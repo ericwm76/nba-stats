@@ -1,0 +1,40 @@
+.NavBar {
+  background-color: #212121;
+  color: white;
+  font-family: "Rajdhani", sans-serif;  
+  height: fit-content;
+  padding: 10px;
+  text-align: center;
+  h1 {
+    display: block;
+    font-size: 3em;
+    font-weight: 400;
+  }
+  form {
+    display: block;
+    width: 100%;
+  }
+  input {
+    background-color: #212121;
+    border: 1px solid white;
+    border-radius: 3px;
+    color: white;
+    font-family: "Rajdhani", sans-serif;  
+    font-size: 1em;
+    height: 40px;
+    margin: 5px;
+    padding: 5px;
+    width: 24%;
+  }
+  button {
+    background-color: #212121;
+    border: 1px solid white;
+    border-radius: 3px;
+    color: white;
+    font-family: "Rajdhani", sans-serif;  
+    font-size: 1em;
+    height: 40px; 
+    margin: 5px;
+    width: 12%;
+  }
+}

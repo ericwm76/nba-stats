@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card should match the snapshot 1`] = `
+<div
+  className="Card"
+>
+  <h3>
+    Name: 
+    Lebron
+     
+    James
+  </h3>
+  <p>
+    Team: 
+    Los Angeles Lakers
+  </p>
+  <p>
+    Height: 
+    6
+    '
+    8
+    "
+  </p>
+  <p>
+    Weight: 
+    250
+     lbs
+  </p>
+  <p>
+    Position: 
+    F
+  </p>
+  <div
+    className="card-footer"
+  >
+    <Link
+      to="/player/237"
+    >
+      <button>
+        View Stats
+      </button>
+    </Link>
+    <button>
+      X
+    </button>
+  </div>
+</div>
+`;

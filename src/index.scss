@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Rajdhani:400,700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  background-color: #212121;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Rajdhani", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
