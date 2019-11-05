@@ -23,3 +23,4 @@ NBA Stats was built using:
   - Router
   - Jest
   - Enzyme
+  - Chart.js
